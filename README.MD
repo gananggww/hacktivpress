@@ -23,9 +23,9 @@ nodemon app.js
 Route|Description
 -----|-----------
 
+```
 npm install
 npm run dev
-
 ```
 
 Access the website via ``https://localhost:8080/`` or API via ``https://localhost:3000/``.
