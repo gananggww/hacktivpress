@@ -1,4 +1,5 @@
 const db = require('../model/users')
+const jwt = require('jsonwebtoken')
 
 const register = (req, res) => {
   db.create({
@@ -17,10 +18,15 @@ const register = (req, res) => {
 const login = (req, res) => {
   db.findOne({username:req.body.username})
   .then(response => {
-    res.send(response)
+    if(response.password == req.body.password) {
+      let token = jwt.sign({_id: response._id, username: response.username}, 'livecode')
+      res.send({token: token, username: response.username})
+    } else {
+      res.send({token: null})
+    }
   })
   .catch(err => {
-    res.send(err)
+    res.send({token: null, error: err})
   })
 }
 

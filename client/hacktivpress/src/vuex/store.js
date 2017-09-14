@@ -30,7 +30,7 @@ const mutations = {
 }
 
 const actions = {
-  getUser (context, payload) {
+  getLogin (context, payload) {
     http.post('/users/login', {
       username: payload.username,
       password: payload.password
@@ -44,7 +44,7 @@ const actions = {
       console.log(err)
     })
   },
-  createUser (context, payload) {
+  getRegister (context, payload) {
     http.post('/users/register', {
       fullname: payload.fullname,
       email: payload.email,
