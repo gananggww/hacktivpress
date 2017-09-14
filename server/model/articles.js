@@ -2,15 +2,15 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const articlesSchema = new Schema({
-  name: {
+  title: {
     type: String,
     required: true
   },
-  username: {
+  content: {
     type: String,
     required: true
   },
-  password: {
+  author: {
     type: String,
     required: true
   }
