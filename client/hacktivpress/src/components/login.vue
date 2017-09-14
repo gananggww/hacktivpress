@@ -19,7 +19,11 @@
       <h1>SIGNUP</h1>
       <form class="ui form">
         <div class="field">
-          <label>username</label>
+          <label>Nama</label>
+          <input type="text" placeholder="name" v-model="formregister.name">
+        </div>
+        <div class="field">
+          <label>Username</label>
           <input type="text" placeholder="username" v-model="formregister.username">
         </div>
         <div class="field">
@@ -43,6 +47,7 @@ export default {
       },
       login: this.$store.state.login,
       formregister: {
+        name: '',
         username: '',
         password: ''
       },

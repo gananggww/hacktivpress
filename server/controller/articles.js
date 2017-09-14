@@ -2,7 +2,7 @@ const db = require('../model/articles')
 const ObjectId = require('mongodb').ObjectId
 
 const getAllData = (req, res) => {
-  db.find().populate({path: 'author', model: users})
+  db.find().populate({path: 'author', model: 'users'})
   .then(response => {
     res.send(response)
   })
@@ -72,7 +72,7 @@ const getByCategory = (req, res) => {
 }
 
 const removeData = (req, res) => {
-  db.remove({_id: ObjectId(req.params.id)}, {author: req.headers.auth.id})
+  db.remove({_id: ObjectId(req.params.id), author: req.headers.auth.id})
   .then(response => {
     res.send(response)
   })
