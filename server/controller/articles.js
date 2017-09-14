@@ -24,7 +24,7 @@ const getOneData = (req, res) => {
 const createData = (req, res) => {
   db.create({
     title: req.body.title,
-    content: req.body.title,
+    content: req.body.content,
     author: req.body.author
   })
   .then(response => {
@@ -40,7 +40,7 @@ const updateData = (req, res) => {
     _id: ObjectId(req.params.id)
   }, {
     title: req.body.title,
-    content: req.body.title,
+    content: req.body.content,
     author: req.body.author
   })
   .then(response => {
