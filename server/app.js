@@ -4,9 +4,11 @@ const app = express()
 const users = require('./router/users')
 const articles = require('./router/articles')
 const mongoose = require('mongoose')
+const cors = require('cors')
 
 mongoose.connect('mongodb://localhost/ganangwahyuwicaksono');
 
+app.use(cors())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 

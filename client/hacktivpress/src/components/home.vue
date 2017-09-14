@@ -4,7 +4,7 @@
       <div class="ui items">
         <div class="item" v-for="all in articles">
           <div class="image">
-            <img src="/images/wireframe/image.png">
+            <img src="http://ideasuccessnetwork.com/wp-content/uploads/2012/06/articles.gif">
           </div>
           <div class="content">
             <a class="header">{{all.title}}</a>
@@ -12,7 +12,7 @@
               <span></span>
             </div>
             <div class="description">
-              <p></p>
+              <p>{{all.content}}</p>
             </div>
             <div class="extra">
               Additional Details
@@ -28,16 +28,12 @@ import { mapActions } from 'vuex'
 export default {
   data () {
     return {
-
     }
   },
   methods: {
     ...mapActions([
       'getArticles'
-    ]),
-    articles () {
-
-    }
+    ])
   },
   computed: {
     articles () {

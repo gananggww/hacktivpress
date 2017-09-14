@@ -31,43 +31,43 @@ const mutations = {
 
 const actions = {
   getUser (context, payload) {
-   http.post('/users/login', {
-     username: payload.username,
-     password: payload.password
-   })
-   .then(response => {
-     console.log('data di action ====> ', response)
-     localStorage.setItem('token', response.data.token)
-     context.commit('setRegister', response.data)
-   })
-   .catch(err => {
-     console.log(err)
-   })
- },
- createUser (context, payload) {
-   http.post('/users/register', {
-     fullname: payload.fullname,
-     email: payload.email,
-     username: payload.username,
-     password: payload.password
-   })
-   .then(response => {
-     context.commit('setRegister', response.data)
-   })
-   .catch(err => {
-     console.log(err)
-   })
- },
- getArticles (context, payload) {
-   http.get('/questions/all')
-   .then(response => {
-     console.log('ini response questions all user: ', response)
-     context.commit('setArticles', response.data)
-   })
-   .catch(err => {
-     console.log(err)
-   })
- }
+    http.post('/users/login', {
+      username: payload.username,
+      password: payload.password
+    })
+    .then(response => {
+      console.log('data di action ====> ', response)
+      localStorage.setItem('token', response.data.token)
+      context.commit('setRegister', response.data)
+    })
+    .catch(err => {
+      console.log(err)
+    })
+  },
+  createUser (context, payload) {
+    http.post('/users/register', {
+      fullname: payload.fullname,
+      email: payload.email,
+      username: payload.username,
+      password: payload.password
+    })
+    .then(response => {
+      context.commit('setRegister', response.data)
+    })
+    .catch(err => {
+      console.log(err)
+    })
+  },
+  getArticles (context, payload) {
+    http.get('/articles/all')
+    .then(response => {
+      console.log('ini response all articles: ', response)
+      context.commit('setArticles', response.data)
+    })
+    .catch(err => {
+      console.log(err)
+    })
+  }
 }
 
 const store = new vuex.Store({
